@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Clock | Waktu Dunia</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="topbar">
+            <div class="brand-mark"><span></span> ATLAS CLOCK</div>
+            <div class="live-status"><i></i> LIVE WORLD TIME</div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">WORLD TIMEKEEPER / 24 ZONES</p>
+                <h1>Waktu dunia,<br><em>dalam satu pandangan.</em></h1>
+                <p class="subtitle">Jelajahi ritme waktu di berbagai kota. Putar bumi dan temukan jam lokal di seluruh penjuru dunia.</p>
+
+                <div class="search-box">
+                    <span class="search-icon">⌕</span>
+                    <input type="text" id="searchInput" placeholder="Cari kota, wilayah, atau timezone...">
+                    <button onclick="searchCity()">Cari kota <span>↗</span></button>
+                </div>
+
+                <div class="hero-meta">
+                    <span><strong>24</strong> zona waktu</span>
+                    <span class="meta-divider"></span>
+                    <span><strong id="cityCount">76</strong> kota terpantau</span>
+                </div>
+            </div>
+
+            <div class="globe-stage" aria-label="Bumi interaktif, seret untuk memutar">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <canvas id="globeCanvas"></canvas>
+                <div class="globe-caption"><span class="pulse-dot"></span> DRAG TO EXPLORE</div>
+            </div>
+        </section>
+
+        <div id="clockList" class="clock-list"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

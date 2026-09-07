@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 28px 28px 70px;
+    background: #081415;
+    color: #f4f0df;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1240px;
+    margin: auto;
+    text-align: center;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0 28px;
+    border-bottom: 1px solid rgba(205, 218, 182, 0.16);
+}
+
+.brand-mark, .live-status, .eyebrow, .hero-meta, .globe-caption {
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.12em;
+}
+
+.brand-mark { font-size: 13px; font-weight: 500; }
+.brand-mark span, .live-status i, .pulse-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: #e5bc68;
+    box-shadow: 0 0 14px #e5bc68;
+}
+.live-status { color: #99aaa0; font-size: 10px; }
+.live-status i { width: 6px; height: 6px; background: #91c878; box-shadow: 0 0 10px #91c878; }
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+    gap: 48px;
+    align-items: center;
+    min-height: 550px;
+    padding: 38px 0 30px;
+}
+
+.hero-copy { position: relative; z-index: 1; }
+.eyebrow { color: #e5bc68; font-size: 10px; margin-bottom: 22px; }
+
+h1 {
+    max-width: 620px;
+    font-size: clamp(44px, 6vw, 78px);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    margin-bottom: 24px;
+}
+
+h1 em { color: #91c878; font-style: normal; }
+
+.subtitle {
+    max-width: 460px;
+    color: #a9b4aa;
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #999;
+    margin-bottom: 30px;
+}
+
+
+/* SEARCH */
+
+.search-box {
+    display: flex;
+    max-width: 570px;
+    margin: 0 0 22px;
+    gap: 8px;
+    padding: 6px;
+    border: 1px solid rgba(206, 218, 187, 0.25);
+    border-radius: 6px;
+    background: rgba(10, 28, 28, 0.8);
+}
+
+.search-icon { display: grid; place-items: center; width: 42px; color: #e5bc68; font-size: 27px; }
+
+.search-box input {
+    flex: 1;
+
+    min-width: 0;
+    padding: 12px 4px;
+    border: none;
+    background: transparent;
+    color: #f4f0df;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: transparent;
+}
+
+.search-box button {
+    padding: 12px 17px;
+    border: none;
+    border-radius: 3px;
+    background: #e5bc68;
+    color: #182521;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.search-box button:hover {
+    background: #f3d48e;
+    transform: translateY(-1px);
+}
+
+.search-box button span { margin-left: 12px; font-size: 17px; }
+.hero-meta { display: flex; align-items: center; gap: 16px; color: #71847a; font-size: 10px; }
+.hero-meta strong { color: #d6e0c5; font-size: 16px; font-weight: 500; }
+.meta-divider { width: 1px; height: 15px; background: rgba(206, 218, 187, 0.28); }
+
+.globe-stage { position: relative; display: grid; place-items: center; min-height: 500px; cursor: grab; user-select: none; }
+.globe-stage:active { cursor: grabbing; }
+#globeCanvas { position: relative; z-index: 2; width: min(100%, 540px); aspect-ratio: 1; touch-action: none; }
+.orbit { position: absolute; width: 78%; height: 25%; border: 1px solid rgba(229, 188, 104, 0.28); border-radius: 50%; transform: rotate(-25deg); }
+.orbit-one { transform: rotate(-25deg) translateY(-8px); }
+.orbit-two { width: 66%; height: 82%; transform: rotate(62deg); border-color: rgba(145, 200, 120, 0.18); }
+.globe-caption { position: absolute; bottom: 20px; z-index: 3; color: #809489; font-size: 9px; }
+.pulse-dot { width: 5px; height: 5px; margin-right: 5px; background: #91c878; box-shadow: 0 0 8px #91c878; }
+
+
+/* CLOCK */
+
+.clock-list {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+    border-top: 1px solid rgba(205, 218, 182, 0.16);
+    padding-top: 28px;
+}
+
+.clock-card {
+    padding: 24px;
+    background: linear-gradient(145deg, rgba(20, 47, 43, 0.88), rgba(11, 29, 29, 0.88));
+    border: 1px solid rgba(183, 203, 165, 0.15);
+    border-radius: 5px;
+    text-align: left;
+
+    transition: 0.3s ease;
+}
+
+.clock-card:hover {
+    transform: translateY(-5px);
+    border-color: #e5bc68;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+.city {
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.country {
+    color: #8ca198;
+
+    margin-bottom: 20px;
+}
+
+.time {
+    font-family: 'DM Mono', monospace;
+    font-size: 31px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.date {
+    margin-top: 10px;
+
+    color: #9aaea0;
+}
+
+.timezone {
+    margin-top: 8px;
+
+    color: #647d70;
+    font-size: 13px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .hero { grid-template-columns: 1fr; padding-top: 55px; }
+    .globe-stage { min-height: 430px; margin-top: -30px; }
+
+    .clock-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    body { padding: 20px 16px 50px; }
+    .topbar { padding-bottom: 20px; }
+    .live-status { display: none; }
+    .hero { gap: 0; min-height: auto; padding-top: 40px; }
+    .hero-meta { margin-bottom: 4px; }
+    .globe-stage { min-height: 340px; margin-top: 0; }
+    .globe-caption { bottom: 4px; }
+
+    .clock-list {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .search-box {
+        flex-direction: column;
+        border: none;
+        padding: 0;
+        background: transparent;
+        gap: 8px;
+    }
+
+    .search-icon { display: none; }
+    .search-box input { padding: 15px; border: 1px solid rgba(206, 218, 187, 0.25); border-radius: 4px; background: rgba(10, 28, 28, 0.8); }
+    .search-box button { padding: 15px; }
+
+    .time {
+        font-size: 32px;
+    }
+
+}
